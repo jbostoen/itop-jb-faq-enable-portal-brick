@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.7">
+<!-- 
+ * @copyright   Copyright (C) 2022 Jeffrey Bostoen
+ * @license     https://www.gnu.org/licenses/gpl-3.0.en.html
+-->
+	<module_designs>
+		<module_design id="itop-portal" xsi:type="portal">
+			<bricks>
+				<brick id="suggest-articles" xsi:type="Combodo\iTop\Portal\Brick\SuggestArticlesBrick" _delta="define">
+					<active>true</active>
+					<rank>
+						<!-- Can be either a <default> tag for both home page and navigation menu or distinct <home> or/and <navigation_menu> tags-->
+						<default>1</default>
+					</rank>
+					<width>4</width>
+					<title>
+						<default>Brick:Portal:SuggestArticles:Title</default>
+					</title>
+					<description>Brick:Portal:SuggestArticles:Title</description>
+					<visible>
+						<home>false</home>
+					</visible>
+					<decoration_class>
+						<default>fa-fw fas fa-plus fa-2x</default>
+					</decoration_class>
+					<class>UserRequest</class>
+				</brick>
+			</bricks>
+			<properties/>
+		</module_design>
+	</module_designs>
+</itop_design>
+
