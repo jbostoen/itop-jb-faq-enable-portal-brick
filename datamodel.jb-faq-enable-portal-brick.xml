@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <itop_design xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.7">
-<!-- 
+	<!-- 
  * @copyright   Copyright (C) 2022 Jeffrey Bostoen
  * @license     https://www.gnu.org/licenses/gpl-3.0.en.html
 -->
@@ -25,8 +25,24 @@
 						<default>fa-fw fas fa-plus fa-2x</default>
 					</decoration_class>
 					<class>UserRequest</class>
+					<rules>
+						<rule id="contact-and-org-to-userrequest"/>
+					</rules>
 				</brick>
 			</bricks>
+			<action_rules>
+				<action_rule id="contact-and-org-to-userrequest" _delta="define">
+					<!-- source_oql|source_class is only necessary if there is some copy preset|retrofit -->
+					<source_oql><![CDATA[SELECT Contact AS C WHERE C.id = :current_contact_id]]></source_oql>
+					<presets>
+						<!-- Only set() and copy() are supported for now -->
+						<preset id="1">set(caller_id, $current_contact_id$)</preset>
+						<preset id="2"><![CDATA[set(org_id, $source->org_id$)]]></preset>
+						<preset id="3">set(origin, portal)</preset>
+					</presets>
+					<retrofits/>
+				</action_rule>
+			</action_rules>
 			<properties/>
 		</module_design>
 	</module_designs>
